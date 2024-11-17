@@ -27,8 +27,8 @@ LISTEN 0      128          0.0.0.0:22        0.0.0.0:*    users:(("sshd",pid=112
 
 4. Вывести дату в unixtime. На вход команды date через пайп подать свой формат выводимой даты:
 ```bash
-[root@devops-slonit ~]# echo %d-%m-%Y-%I:%M:%S | (read f; echo Current date and time: $(date +"$f");)
-Current date and time: 10-11-2024-08:09:52
+[root@devops-slonit ~]# date '+%Y-%m-%d' | xargs -I{} date -d {} +%s
+1731801600
 ```
 
 5. При помощи HEREDOC записать в файл многострочное сообщение:
