@@ -27,8 +27,11 @@ LISTEN 0      128          0.0.0.0:22        0.0.0.0:*    users:(("sshd",pid=112
 
 4. Вывести дату в unixtime. На вход команды date через пайп подать свой формат выводимой даты:
 ```bash
-[root@devops-slonit ~]# date +%s | xargs -I{} date -d @{} +"%H:%M %d.%m.%Y"
-16:19 22.11.2024
+[root@devops-slonit ~]# date +%s
+1732894647
+[root@devops-slonit ~]# date +%s | xargs -I{} date -d @{} +"%I:%M:%S  %d-%m-%Y"
+03:37:33  29-11-2024
+
 ```
 
 5. При помощи HEREDOC записать в файл многострочное сообщение:
